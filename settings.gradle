@@ -1,0 +1,4 @@
+rootProject.name = 'performance-after-eight'
+
+include ':jdk-8'
+include ':jdk-9'
