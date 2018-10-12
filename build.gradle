@@ -1,6 +1,6 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "2.0.2" apply false
-    id "java"
+    id "com.github.ben-manes.versions" version "0.20.0"
+    id "com.github.johnrengelman.shadow" version "2.0.4" apply false
 }
 
 allprojects {
@@ -18,9 +18,9 @@ subprojects { subproj ->
     }
 
     dependencies {
-        compile "org.openjdk.jmh:jmh-core:1.20"
+        compile "org.openjdk.jmh:jmh-core:1.21"
         compile "org.openjdk.jol:jol-core:0.9"
-        annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.20"
+        annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
     }
 
     compileJava {
@@ -42,9 +42,9 @@ project('jdk-8') {
     sourceCompatibility = targetCompatibility = 1.8
 }
 
-project('jdk-9') {
-    release = '9'
-    sourceCompatibility = targetCompatibility = 1.9
+project('jdk-11') {
+    release = '11'
+    sourceCompatibility = targetCompatibility = 11
 
     sourceSets {
         main {
