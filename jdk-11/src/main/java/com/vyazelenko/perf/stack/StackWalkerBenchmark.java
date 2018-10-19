@@ -1,6 +1,12 @@
 package com.vyazelenko.perf.stack;
 
-import org.openjdk.jmh.annotations.*;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Param;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.State;
 
 import java.lang.StackWalker.Option;
 import java.util.concurrent.TimeUnit;
@@ -10,9 +16,6 @@ import static java.util.stream.Collectors.toList;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 10)
 @State(Scope.Benchmark)
 public class StackWalkerBenchmark {
 

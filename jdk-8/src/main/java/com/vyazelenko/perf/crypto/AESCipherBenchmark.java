@@ -17,9 +17,6 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 10)
 @State(Scope.Benchmark)
 public class AESCipherBenchmark {
     private Cipher encryptor;
@@ -39,7 +36,7 @@ public class AESCipherBenchmark {
         parameterSpec = encryptor.getParameters().getParameterSpec(GCMParameterSpec.class);
         decryptor = Cipher.getInstance("AES/GCM/NoPadding");
         decryptor.init(Cipher.DECRYPT_MODE, key, parameterSpec);
-        rawBytes = "The quick brown fox jumps over the lazy dog".getBytes(UTF_8);
+        rawBytes = "The quick brown \uD83D\uDC7B jumps over the lazy dog".getBytes(UTF_8);
         encryptedBytes = encryptor.doFinal(Arrays.copyOf(rawBytes, rawBytes.length));
     }
 

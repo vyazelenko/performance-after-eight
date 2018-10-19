@@ -6,9 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 10)
 @State(Scope.Benchmark)
 public class StringConcatLoopBenchmark {
     @Param("50")

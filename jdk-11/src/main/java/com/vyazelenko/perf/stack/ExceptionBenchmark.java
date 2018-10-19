@@ -9,9 +9,6 @@ import static com.vyazelenko.perf.stack.StackHelper.doCall;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-@Fork(3)
-@Warmup(iterations = 10)
-@Measurement(iterations = 10)
 @State(Scope.Benchmark)
 public class ExceptionBenchmark {
     @Param({"10", "100"})
