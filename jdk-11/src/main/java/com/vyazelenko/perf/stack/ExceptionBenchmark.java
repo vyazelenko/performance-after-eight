@@ -15,7 +15,7 @@ public class ExceptionBenchmark {
     private int stackDepth;
 
     @Benchmark
-    public Class<?> callerClass() throws Exception {
+    public Class<?> caller_class() throws Exception {
         return doCall(() -> {
             StackTraceElement[] stackTrace = new Exception().getStackTrace();
             return Class.forName(stackTrace[2].getClassName());
@@ -23,14 +23,14 @@ public class ExceptionBenchmark {
     }
 
     @Benchmark
-    public int stackDepth() throws Exception {
+    public int stack_depth() throws Exception {
         return doCall(
                 () -> new Exception().getStackTrace().length,
                 stackDepth);
     }
 
     @Benchmark
-    public Object top10frames() throws Exception {
+    public Object top_10_frames() throws Exception {
         return doCall(() -> {
             StackTraceElement[] stackTrace = new Exception().getStackTrace();
             return Arrays.copyOfRange(stackTrace, 0, 10);

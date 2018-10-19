@@ -25,21 +25,21 @@ public class StackWalkerBenchmark {
     private int stackDepth;
 
     @Benchmark
-    public Class<?> callerClass() throws Exception {
+    public Class<?> caller_class() throws Exception {
         return doCall(
                 () -> STACK_WALKER.getCallerClass(),
                 stackDepth);
     }
 
     @Benchmark
-    public int stackDepth() throws Exception {
+    public int stack_depth() throws Exception {
         return doCall(
                 () -> STACK_WALKER.walk(stream -> stream.count()).intValue(),
                 stackDepth);
     }
 
     @Benchmark
-    public Object top10frames() throws Exception {
+    public Object top_10_frames() throws Exception {
         return doCall(
                 () -> STACK_WALKER.walk(s -> s.limit(10).collect(toList())),
                 stackDepth);
