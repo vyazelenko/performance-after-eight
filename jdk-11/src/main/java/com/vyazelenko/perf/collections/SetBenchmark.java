@@ -57,7 +57,6 @@ public class SetBenchmark extends AbstractCollectionBenchmark {
         return set.contains(contains);
     }
 
-
     @Benchmark
     public void iterator(Blackhole bh) {
         Set<Object> list = this.set;

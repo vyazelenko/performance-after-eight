@@ -47,11 +47,6 @@ public class ListBenchmark extends AbstractCollectionBenchmark {
     }
 
     @Benchmark
-    public Object get() {
-        return list.get(index);
-    }
-
-    @Benchmark
     public Object contains() {
         return list.contains(contains);
     }

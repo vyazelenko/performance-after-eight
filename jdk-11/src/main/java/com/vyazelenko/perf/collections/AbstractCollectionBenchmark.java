@@ -22,7 +22,8 @@ public abstract class AbstractCollectionBenchmark {
     public void setup() {
         Random random = new Random(36287463248382L);
         Object[] values = random.ints(size, 1_000, 1_000_000).mapToObj(Integer::valueOf).toArray();
-        doSetup(values);
+        Object[] array = random.ints(0, values.length).mapToObj(i -> values[i]).toArray();
+        doSetup(array);
     }
 
     protected abstract void doSetup(Object[] values);
