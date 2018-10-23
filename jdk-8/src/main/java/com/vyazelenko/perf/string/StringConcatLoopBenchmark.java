@@ -18,7 +18,7 @@ public class StringConcatLoopBenchmark {
     @Setup
     public void setup() {
         currentTime = System.currentTimeMillis();
-        count = 42;
+        count = 36473;
         message = "Log payload";
     }
 

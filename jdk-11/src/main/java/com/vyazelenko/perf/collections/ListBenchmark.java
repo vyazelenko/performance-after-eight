@@ -2,7 +2,6 @@ package com.vyazelenko.perf.collections;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Param;
-import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -36,26 +35,16 @@ public class ListBenchmark extends AbstractCollectionBenchmark {
     private Kind kind;
 
     private List<Object> list;
-    private int index;
     private Object contains;
 
     @Override
     protected void doSetup(Object[] values) {
         list = kind.create(values);
-        index = values.length >> 1;
-        contains = values[index];
+        contains = values[values.length >> 1];
     }
 
     @Benchmark
     public Object contains() {
         return list.contains(contains);
-    }
-
-    @Benchmark
-    public void iterator(Blackhole bh) {
-        List<Object> list = this.list;
-        for (Object o : list) {
-            bh.consume(o);
-        }
     }
 }

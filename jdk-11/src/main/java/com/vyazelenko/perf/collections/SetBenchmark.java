@@ -2,7 +2,6 @@ package com.vyazelenko.perf.collections;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Param;
-import org.openjdk.jmh.infra.Blackhole;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -55,13 +54,5 @@ public class SetBenchmark extends AbstractCollectionBenchmark {
     @Benchmark
     public Object contains() {
         return set.contains(contains);
-    }
-
-    @Benchmark
-    public void iterator(Blackhole bh) {
-        Set<Object> list = this.set;
-        for (Object o : list) {
-            bh.consume(o);
-        }
     }
 }
