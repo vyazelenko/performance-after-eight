@@ -1,11 +1,11 @@
 plugins {
-    id "com.github.ben-manes.versions" version "0.20.0"
-    id "com.github.johnrengelman.shadow" version "2.0.4" apply false
+    id "com.github.ben-manes.versions" version "0.39.0"
+    id "com.github.johnrengelman.shadow" version "7.0.0" apply false
 }
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -14,9 +14,9 @@ subprojects { subproj ->
     apply plugin: 'com.github.johnrengelman.shadow'
 
     dependencies {
-        compile "org.openjdk.jmh:jmh-core:1.21"
-        compile "org.openjdk.jol:jol-core:0.9"
-        annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.21"
+        implementation "org.openjdk.jmh:jmh-core:1.33"
+        implementation "org.openjdk.jol:jol-core:0.16"
+        annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.33"
     }
 
     shadowJar {
